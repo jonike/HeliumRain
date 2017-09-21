@@ -142,7 +142,19 @@ public:
 
 	bool IsShipyard();
 
+
+	/*----------------------------------------------------
+		Complexes
+	----------------------------------------------------*/
+
+	/** Is this station a complex */
 	bool IsComplex() const;
+
+	/** Is this station part of a complex, and not a standalone station */
+	bool IsComplexElement() const;
+
+	/** Get available connectors */
+	TArray<struct FFlareDockingInfo> GetStationConnectors() const;
 
 
 	/*----------------------------------------------------
@@ -205,7 +217,7 @@ protected:
 
 	AFlareGame*                   Game;
 
-	AFlareSpacecraft*                   ActiveSpacecraft;
+	AFlareSpacecraft*             ActiveSpacecraft;
 
 	UFlareFleet*                  CurrentFleet;
 	UFlareSimulatedSector*        CurrentSector;
@@ -221,6 +233,9 @@ protected:
 
 	UPROPERTY()
 	UFlareCargoBay*                                         CargoBay;
+
+	TArray<struct FFlareDockingInfo>                        ConnectorSlots;
+
 
 public:
 
